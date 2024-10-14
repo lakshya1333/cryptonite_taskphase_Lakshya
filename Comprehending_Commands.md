@@ -11,6 +11,21 @@
      containing SEARCH_STRING and print them to the console. <br>
      Flag = pwn.college{YJIxPxTU7EazzzW8S5I6fS4TaGI.ddTM4QDL0YjM0czW} ued command  grep pwn /challenge/data.txt <br>
 ## listing files: <br>
-    **ls** will list files in all the directories provided to it as arguments. 
+    **ls** will list files in all the directories provided to it as arguments.<br> 
+    Unable to solve getting permission denied.<br>
+## touching files <br>
+    You can create a new, blank file by touching it with the touch command. <br>
+    Flag = pwn.college{4FG2vt1ioHQhyaEBVk2H9W-_sTg.dBzM4QDL0YjM0czW} <br>
+## removing files <br>
+    In Linux, you remove files with the rm command. <br>
+    Flag = pwn.college{cKufd9U4Zk3AWxbWZLWxY8xSkQl.dZTOwUDL0YjM0czW}
+## hidden files: <br>
+    Linux has a convention where files that start with a . don't show up by default in ls and in a few other contexts.  To view them with ls, you need to invoke ls 
+    with the -a flag <br>
+    Flag = pwn.college{00Y6ACQqoRjJQRE7Jjh5mKzGPpX.dBTN4QDL0YjM0czW} <br>
+## An Epic Filesystem Quest: <br>
+    
+
+
     
 
