@@ -24,6 +24,16 @@
     with the -a flag <br>
     Flag = pwn.college{00Y6ACQqoRjJQRE7Jjh5mKzGPpX.dBTN4QDL0YjM0czW} <br>
 ## An Epic Filesystem Quest: <br>
+    For this i took help from google and used Strings as i as unable to access directly as it was self destructing.  If the file contains readable text, you can 
+    try using strings instead of cat.<br>
+    for one part used **od** command as strings was not working The od command allows you to read a file's contents byte by byte, potentially avoiding traps that 
+    are triggered by reading the whole file at once <br>
+    Flag = pwn.college{kE6QLhWPSr7UehiQXV1QY5Y0318.dljM4QDL0YjM0czW} <br>
+## making directories: <br>
+    You make directories using the mkdir command. <br>
+    Flag = pwn.college{k7XyoHTcFTtmCmbeAjsRtPeTW3m.dFzM4QDL0YjM0czW}
+## Finding Files: <br>
+     
     
 
 
