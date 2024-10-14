@@ -20,7 +20,25 @@
     I was also same only like the previous ones here i first cd to challenge directly where i did /challenge/run but then i told me to go to /usr/aarch64-linux-gnu/include/gnu 
     and i repeated the same stuff. <br>
     Flag = pwn.college{4mT2DLV-PkV084EIELbWf0RKXcV.dhDN1QDL0YjM0czW} <br>
+## implicit Relatic path, from /: <br>
+    The current working directory does matter for relative path. A relative path is any path that does not start at root (i.e., it does not start with /). It 
+    is relative to your current working directory (cwd). The .. refers to the parent directory. <br>
+    Flag = pwn.college{4vFTuOBeDaNOHzNo0JhGXBDRVk_.dlDN1QDL0YjM0czW} <br>
+## explicit Relative path, from /: <br>
+    Every directory has two implicit entries that you can reference in paths: . and .. .The first, ., refers right to the same directory. <br>
+    Flag = pwn.college{4wDr3cdY0klxMKoh2EvZBprFxgL.dBTN1QDL0YjM0czW} <br>
+## implicit relative path: <br>
+    We will get this output bash: run: command not found when we give a naked path.<br>
+    Flag = pwn.college{siIyRotOiY9AuHx8xz9KqlmxDtC.dFTN1QDL0YjM0czW}
+## home sweet home: <br>
+    The ~ in this prompt is the current working directory, with ~ being shorthand for /home/hacker. ~/~ will be expanded to /home/hacker/~ rather than 
+    /home/hacker/home/hacker. <br>
+    Flag = pwn.college{spKngYOWJfTt_elXaJMHLxSO3Vg.dNzM4QDL0YjM0czW}
+    
+   
+    
 
+    
     
     
     
