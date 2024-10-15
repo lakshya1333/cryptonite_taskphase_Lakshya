@@ -12,7 +12,8 @@
      Flag = pwn.college{YJIxPxTU7EazzzW8S5I6fS4TaGI.ddTM4QDL0YjM0czW} ued command  grep pwn /challenge/data.txt <br>
 ## listing files: <br>
     **ls** will list files in all the directories provided to it as arguments.<br> 
-    Unable to solve getting permission denied.<br>
+    needed to execute the script <br>
+    Flag = pwn.college{825dQIAhmXaFZMgoZL571extWir.dhjM4QDL0YjM0czW}
 ## touching files <br>
     You can create a new, blank file by touching it with the touch command. <br>
     Flag = pwn.college{4FG2vt1ioHQhyaEBVk2H9W-_sTg.dBzM4QDL0YjM0czW} <br>
@@ -32,7 +33,18 @@
 ## making directories: <br>
     You make directories using the mkdir command. <br>
     Flag = pwn.college{k7XyoHTcFTtmCmbeAjsRtPeTW3m.dFzM4QDL0YjM0czW}
-## Finding Files: <br>
+## Finding Files: <br
+    **find** command is used to find the files.The **find** command takes optional arguments describing the search criteria and the search location. If you don't 
+     specify a search criteria, find matches every file. If you don't specify a search location, find uses the current working directory (.). <br>
+     Flag = pwn.college{sP3k9kAgUX1Yx5uzB1rlirjEsTL.dJzM4QDL0YjM0czW} the flag was in /usr/local/share/afl/testcases/archives/common/gzip/flag. <br>
+## Linking Files: <br>
+     Links come in two flavors: hard and soft (also known as symbolic) links.<br>
+     Hard = A hard link is when you address your appartment using multiple addresses that all lead directly to the same place (e.g., Apt 2 vs Unit 2). <br>
+     Soft = A soft link is when you move appartments and have the postal service automatically forward your mail from your old place to your new place. <br>
+     Symbolic links are created with the ln command with the -s argument <br>
+     Flag = pwn.college{E7Gj5hGfSoRR0Z8V63K_psZ9SnZ.dlTM1UDL0YjM0czW} i removed the not-the flag file and then use ln -s command to make the catflaf file read the 
+     file content. <br>
+    
      
     
 
