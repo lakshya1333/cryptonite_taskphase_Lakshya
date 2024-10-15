@@ -166,6 +166,27 @@ Correct usage! Your flag: pwn.college{Yzjh40vLY-1uyh_J485CaOM4RXl.ddjM4QDL0YjM0c
 This is how i got the flag.
 
 ## Help for Builtins:
+There are some programs which are built into the shell itself they are called ```Builtins```. You can get a list of shell builtins by running the builtin ```help```. You can get help on a specific one by passing it to the help builtin.
+In this challenge the ```challenge``` is a Builtins i need to look again to find out how to print the flag.
+```bash
+Connected!
+hacker@man~help-for-builtins:~$ help challenge
+challenge: challenge [--fortune] [--version] [--secret SECRET]
+    This builtin command will read you the flag, given the right arguments!
+
+    Options:
+      --fortune         display a fortune
+      --version         display the version
+      --secret VALUE    prints the flag, if VALUE is correct
+
+    You must be sure to provide the right value to --secret. That value
+    is "IN3t1vzl".
+hacker@man~help-for-builtins:~$ challenge --secret IN3t1vzl
+Correct! Here is your flag!
+pwn.college{IN3t1vzl-urkntFtczI1uUJMyXN.dRTM5QDL0YjM0czW}
+```
+This was easy.
+
    
 
 
