@@ -203,4 +203,48 @@ pwned
 This challenge was cool as i was asked to Redirect standard error (stderr, file descriptor 2) to standard output (stdout, file descriptor 1) . THis cannot be done using ```>``` so i was asked to use ```2>&1``` which redirects stderr (fd 2) to stdout (fd 1). after that i used ```grep``` command to find the flag that starts with pwn.
 
 ## Duplicating pipe data with tee:
+The ```tee``` command, named after a "T-splitter" from plumbing pipes, duplicates data flowing through your pipes to any number of files provided on the command line.
+```bash
+Connected!
+hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn | tee output | /challenge/college
+Processing...
+The input to 'college' does not contain the correct secret code! This code
+should be provided by the 'pwn' command. HINT: use 'tee' to intercept the
+output of 'pwn' and figure out what the code needs to be.
+hacker@piping~duplicating-piped-data-with-tee:~$ cat output
+Usage: /challenge/pwn --secret [SECRET_ARG]
 
+SECRET_ARG should be "QtumCrbY"
+hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn --secret QtumCrbY | tee output | /challenge/college
+Processing...
+WARNING: you are overwriting file output with tee's output...
+Correct! Passing secret value to /challenge/college...
+Great job! Here is your flag:
+pwn.college{QtumCrbYi8_oZgeOyf_fugqPrIp.dFjM5QDL0YjM0czW}
+```
+This challenge was tricky i was needed to use tee command to see the secret argument which was hidden. i saved the file of /pwn to output file from there using cat command using i got the secret argument which i have to pass in order to get the flag. 
+
+## Writing to multiple files:
+We can duplicate data to two files with tee command . We can use tee to duplicate data to a file and a command.
+In Linux, process substitution allows you to treat the output or input of a command as if it were a file. This is useful because many utilities expect file arguments, but with process substitution, you can connect the output or input of commands directly. ```Process substitution uses special syntax >(command) (for output) or <(command) (for input) to redirect the input/output of a command to a temporary file (actually, a named pipe) that behaves like a file.```
+If you use ```>(rev)```, the shell creates a temporary pipe (a file-like object), runs the rev command, and hooks up its input to that pipe. Process Substitution is a powerful tool.
+```bash
+hacker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >( /challenge/the ) | /challenge/planet
+Congratulations, you have duplicated data into the input of two programs! Here
+is your flag:
+pwn.college{0zyFzxsGZTw-RXhIguw2PgTZU8b.dBDO0UDL0YjM0czW}
+```
+```/challenge/hack``` will run the /challenge/hack command.```tee``` duplicates the output of /challenge/hack.
+```>(/challenge/the)``` creates a process substitution, sending one copy of the output directly to the ```/challenge/the``` command.
+```| /challenge/planet``` The other copy of the output from tee is piped to /challenge/planet.
+
+## Split-Piping stderr and stdout:
+```bash
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack > >( /challenge/planet ) 2> >( /challenge/the )
+Congratulations, you have learned a redirection technique that even experts
+struggle with! Here is your flag:
+pwn.college{wc65MiC6SZ3eK1C-P3ZX0rugLBk.dFDNwYDL0YjM0czW}
+hacker@piping~split-piping-stderr-and-stdout:~$
+```
+```/challenge/hack``` will produces both stdout and stderr. ```>``` redirects stdout of /challenge/hack into the process substitution >(/challenge/planet).
+this will send stdout to ```/challenge/planet```.```2>``` redirects stderr of /challenge/hack to another process substitution >(/challenge/the)
