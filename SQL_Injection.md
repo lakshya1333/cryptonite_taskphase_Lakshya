@@ -8,3 +8,8 @@ Some common SQL injection examples include: <br>
     2.Subverting application logic, where you can change a query to interfere with the application's logic. <br>
     3.UNION attacks, where you can retrieve data from different database tables. <br>
     4.Blind SQL injection, where the results of a query you control are not returned in the application's responses. <br>
+
+```bash 
+SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1
+```
+Note that ```--``` is a comment indicator in SQL. This means that the rest of the query is interpreted as a comment, effectively removing it. In this example, this means the query no longer includes ```AND released = 1.``` As a result, all products are displayed, including those that are not yet released.
