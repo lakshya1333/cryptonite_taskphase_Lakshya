@@ -13,3 +13,14 @@ Some common SQL injection examples include: <br>
 SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1
 ```
 Note that ```--``` is a comment indicator in SQL. This means that the rest of the query is interpreted as a comment, effectively removing it. In this example, this means the query no longer includes ```AND released = 1.``` As a result, all products are displayed, including those that are not yet released.
+
+Another attack:
+```bash
+https://insecure-website.com/products?category=Gifts'+OR+1=1--
+```
+This result6 in SQL query:
+```bash
+SELECT * FROM products WHERE category = 'Gifts' OR 1=1--' AND released = 1
+```
+The modified query returns all items where either the category is Gifts, or 1 is equal to 1. As 1=1 is always true, the query returns all items.
+
