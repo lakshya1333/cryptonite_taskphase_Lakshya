@@ -59,3 +59,9 @@ You can also identify what database tables exist, and the columns they contain. 
 ```bash
 SELECT * FROM information_schema.tables
 ```
+
+## Lab: SQL injection with filter bypass via XML encoding:
+To solve the lab, perform a SQL injection attack to retrieve the admin user's credentials, then log in to their account. I used Burp suite to solve this challenge. with the help of extension i used ```hackvertor``` extension which helped me encode my data to XML format using ```dec_entities/hex_entities.```
+
+## How to prevent SQLi:
+You can prevent most instances of SQL injection using parameterized queries instead of string concatenation within the query. These parameterized queries are also know as "prepared statements".
