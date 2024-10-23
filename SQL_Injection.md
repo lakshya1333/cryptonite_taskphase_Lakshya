@@ -65,3 +65,15 @@ To solve the lab, perform a SQL injection attack to retrieve the admin user's cr
 
 ## How to prevent SQLi:
 You can prevent most instances of SQL injection using parameterized queries instead of string concatenation within the query. These parameterized queries are also know as "prepared statements".
+
+## Lab: SQL injection attack, querying the database type and version on Oracle:
+Used Burp suit to query it. I saw when i click category it is query so i can put injection in that first i tried to print all column using ```UNION```
+```bash
+'+UNION+SELECT+'abc','def'+FROM+dual--
+```
+After this i saw i can see hidden stuff also so came to know i am in right direction. After this:
+```bash
+'+UNION+SELECT+BANNER,+NULL+FROM+v$version--
+```
+It displayed the database version.
+
