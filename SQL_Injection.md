@@ -121,3 +121,6 @@ I got an error so i starting to get mor null to see the output.
 https://0ae600de03aad8ea82d1519e00ba00ac.web-security-academy.net/filter?category=Corporate+gifts%27+UNION+SELECT+NULL,null,null--
 ```
 with this i solved the challenge.
+
+## Lab: Blind SQL injection with conditional responses:
+
