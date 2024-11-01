@@ -74,3 +74,18 @@ hash = bytes_to_long(hash_object.digest())
 signature = pow(hash,d,N)
 print(signature)
 ```
+
+## Factoring:
+These days, using primes that are at least 1024 bits long is recommended—multiplying two such 1024 primes gives you a modulus that is 2048 bits large. RSA with a 2048-bit modulus is called RSA-2048.
+I used ```sympy``` to factorize it.
+```bash
+from sympy import factorint
+number = 510143758735509025530880200653196460532653147
+factors = factorint(number)
+min = min(factors)
+print(min)
+
+output => 19704762736204164635843
+```
+
+## Inferious prime:
