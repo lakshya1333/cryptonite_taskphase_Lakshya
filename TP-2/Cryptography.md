@@ -89,3 +89,26 @@ output => 19704762736204164635843
 ```
 
 ## Inferious prime:
+In this they gave a RSA script which had a question mark flag but acc to me is of no use. I was given a output.txt file where n was there so i factoize it got p and
+q and did a normal procedure to get the flag.
+```bash
+from Crypto.Util.number import long_to_bytes
+from sympy import factorint
+
+n = 984994081290620368062168960884976209711107645166770780785733
+e = 65537
+ct = 948553474947320504624302879933619818331484350431616834086273
+# nums = factorint(n)
+# print(list(nums.keys()))
+p = 1160939713152385063689030212503
+q = 848445505077945374527983649411
+phi = (p - 1) * (q - 1)
+d = pow(e, -1, phi)
+
+flag = pow(ct, d, n)
+flagnew = long_to_bytes(flag)
+print(flagnew)
+```
+
+## Monoprime:
+
