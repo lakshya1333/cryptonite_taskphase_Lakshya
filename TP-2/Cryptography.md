@@ -21,7 +21,7 @@ encrypt = pow(a,e,k)
 print(encrypt)
 ```
 
-## Euler Tolerant:
+## Euler Totient:
 RSA relies on the difficulty of the factorisation of the modulus N. If the prime factors can be deduced, then we can calculate the Euler totient of N 
 and thus decrypt the ciphertext.
 Euler's totient ϕ(N) = (p-1)*(q-1)
