@@ -373,4 +373,35 @@ print(flagg)
 ```
 flag => ```b'crypto{Th3se_Pr1m3s_4r3_t00_r4r3}'```
 
-## Fast Primes
+## Fast Primes:
+```bash
+ct = 0x249d72cd1d287b1a15a3881f2bff5788bc4bf62c789f2df44d88aae805b54c9a94b8944c0ba798f70062b66160fee312b98879f1dd5d17b33095feb3c5830d28
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
+from Crypto.Util.number import long_to_bytes
+import binascii
+# pem_key = """-----BEGIN PUBLIC KEY-----
+# MFswDQYJKoZIhvcNAQEBBQADSgAwRwJATKIe3jfj1qY7zuX5Eg0JifAUOq6RUwLz
+# Ruiru4QKcvtW0Uh1KMp1GVt4MmKDiQksTok/pKbJsBFCZugFsS3AjQIDAQAB
+# -----END PUBLIC KEY-----"""
+
+# public_key = RSA.import_key(pem_key)
+
+# n = public_key.n
+# e = public_key.e
+
+n = 4013610727845242593703438523892210066915884608065890652809524328518978287424865087812690502446831525755541263621651398962044653615723751218715649008058509
+e = 65537
+p = 51894141255108267693828471848483688186015845988173648228318286999011443419469
+q = 77342270837753916396402614215980760127245056504361515489809293852222206596161
+
+phi = (p-1)*(q-1)
+d = pow(e,-1,phi)
+key = RSA.construct((n, e, d))
+cipher = PKCS1_OAEP.new(key)
+c = long_to_bytes(ct)
+m = cipher.decrypt(c)
+print(m)
+```
+## Ron was wrong:
+
